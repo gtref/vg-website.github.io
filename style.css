@@ -1,260 +1,173 @@
 /*
- * Modern CSS with Glassmorphism
- * Version 4.0
+ * Corporate Modern CSS with Light/Dark Mode
+ * Version 5.0
  */
 
-/* 1. General Body and Root Styles
+/* 1. Design Tokens and Variables
 ---------------------------------------------------------------------- */
-
 :root {
-    --primary-color: rgba(0, 123, 255, 0.5);
-    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    /* Font Families */
+    --font-family-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+    /* Spacing & Sizing */
+    --spacing-base: 1rem;
+    --border-radius: 0.5rem;
+    --container-max-width: 1140px;
+
+    /* Transitions */
+    --transition-speed: 0.2s;
 }
 
-body {
-    font-family: var(--font-family-sans-serif);
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #fff;
-    background-color: #000;
-    margin: 0;
-    padding: 2rem;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+/* Light Mode Colors (Default) */
+:root {
+    --bg-color: #f8f9fa;
+    --text-color: #212529;
+    --primary-color: #0d6efd;
+    --primary-color-hover: #0b5ed7;
+    --border-color: #dee2e6;
+    --card-bg-color: #ffffff;
+    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
+/* Dark Mode Colors */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #121212;
+        --text-color: #e9ecef;
+        --primary-color: #0d6efd;
+        --primary-color-hover: #3d8bfd;
+        --border-color: #343a40;
+        --card-bg-color: #1c1c1e;
+        --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* 2. General Body and Root Styles
+---------------------------------------------------------------------- */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
 
-/* Glassmorphism effect for containers */
-header, footer, section, article, aside, nav, blockquote, pre, table, fieldset {
-    background: rgba(10, 10, 10, 0.4);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 2rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+body {
+    font-family: var(--font-family-sans-serif);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: calc(var(--spacing-base) * 2);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color var(--transition-speed) ease-in-out, color var(--transition-speed) ease-in-out;
+}
+
+/* 3. Layout and Containers
+---------------------------------------------------------------------- */
+#header, #footer {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: var(--spacing-base) calc(var(--spacing-base) * 2);
+    margin-bottom: calc(var(--spacing-base) * 2);
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+}
+
+#footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-color-muted, #6c757d); /* Fallback for older browsers */
+}
+
+.content {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0;
 }
 
 .card {
-    background: rgba(10, 10, 10, 0.4);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 2rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: calc(var(--spacing-base) * 2);
+    margin-bottom: calc(var(--spacing-base) * 2);
+    box-shadow: var(--card-shadow);
+    transition: box-shadow var(--transition-speed) ease-in-out, transform var(--transition-speed) ease-in-out;
 }
 
-/* 2. Typography
----------------------------------------------------------------------- */
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
 
+/* 4. Typography
+---------------------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
+    margin-bottom: calc(var(--spacing-base) * 0.5);
+    font-weight: 600;
     line-height: 1.2;
-    color: #fff;
-    text-shadow: 0 0 10px rgba(0,0,0,0.5);
+    color: var(--text-color);
 }
 
-h1 { font-size: 3rem; }
-h2 { font-size: 2.5rem; }
-h3 { font-size: 2rem; }
-h4 { font-size: 1.5rem; }
-h5 { font-size: 1.25rem; }
-h6 { font-size: 1rem; }
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
 
 p {
     margin-top: 0;
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-base);
 }
 
 a {
     color: var(--primary-color);
     text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s ease;
+    font-weight: 500;
+    transition: color var(--transition-speed) ease;
 }
 
 a:hover {
-    color: rgba(0, 123, 255, 1);
+    color: var(--primary-color-hover);
     text-decoration: underline;
 }
 
 ul, ol {
-    padding-left: 2rem;
-    margin-top: 0;
-    margin-bottom: 1rem;
+    padding-left: calc(var(--spacing-base) * 1.5);
 }
 
-li {
-    margin-bottom: 0.5rem;
+hr {
+    margin-top: calc(var(--spacing-base) * 2);
+    margin-bottom: calc(var(--spacing-base) * 2);
+    border: 0;
+    border-top: 1px solid var(--border-color);
 }
 
-pre, code, kbd, samp {
-    font-family: var(--font-family-monospace);
-    font-size: 1em;
-}
-
-pre {
-    padding: 1.5rem;
-}
-
-code {
-    font-size: 87.5%;
-    color: #e83e8c;
-    word-wrap: break-word;
-}
-
-/* 3. Forms
+/* 5. Buttons
 ---------------------------------------------------------------------- */
-
-form {
-    margin-bottom: 1rem;
-}
-
-legend {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    padding: 0;
-    margin-bottom: .5rem;
-    font-size: 1.5rem;
-    line-height: inherit;
-    color: inherit;
-    white-space: normal;
-}
-
-label {
+.button {
     display: inline-block;
-    margin-bottom: .5rem;
-    font-weight: 600;
-}
-
-input, button, select, optgroup, textarea {
-    margin: 0;
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-}
-
-input[type="text"],
-input[type="password"],
-input[type="email"],
-input[type="number"],
-input[type="tel"],
-input[type="url"],
-input[type="search"],
-textarea,
-select {
-    display: block;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 0.5rem;
-    padding: 0.75rem 1rem;
-    color: #fff;
-    margin-bottom: 1rem;
-    font-size: 1rem;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-input::placeholder, textarea::placeholder {
-    color: rgba(255, 255, 255, 0.7);
-}
-
-textarea {
-    height: auto;
-}
-
-button, input[type="submit"], input[type="reset"], input[type="button"] {
-    display: inline-block;
-    font-weight: 400;
+    font-weight: 500;
     text-align: center;
     vertical-align: middle;
     cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
     border: 1px solid transparent;
-    padding: 0.75rem 1.5rem;
+    padding: 0.5rem 1.5rem;
     font-size: 1rem;
     line-height: 1.5;
-    border-radius: 0.5rem;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    background: var(--primary-color);
+    border-radius: var(--border-radius);
+    transition: all var(--transition-speed) ease-in-out;
+    background-color: var(--primary-color);
     color: #fff;
 }
 
-button:hover, input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover {
-    background: rgba(0, 123, 255, 1);
-}
-
-/* 4. Tables
----------------------------------------------------------------------- */
-
-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-}
-
-thead th {
-    vertical-align: bottom;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-}
-
-tbody, thead, tfoot, tr, td, th {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 1rem;
-    vertical-align: top;
-}
-
-/* 5. Other Elements
----------------------------------------------------------------------- */
-
-hr {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    border: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-img {
-    vertical-align: middle;
-    border-style: none;
-    max-width: 100%;
-    height: auto;
-    border-radius: 0.5rem;
-}
-
-figure {
-    margin: 0 0 1rem;
-}
-
-figcaption {
-    font-size: 90%;
-    color: rgba(255, 255, 255, 0.8);
-    padding-top: 0.5rem;
-}
-
-details {
-    display: block;
-    margin-bottom: 1rem;
-}
-
-summary {
-    display: list-item;
-    cursor: pointer;
-    font-weight: 600;
+.button:hover {
+    background-color: var(--primary-color-hover);
+    text-decoration: none;
+    color: #fff;
 }
