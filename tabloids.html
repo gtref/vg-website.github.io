@@ -7,7 +7,7 @@
     <title>VG-WEBSITE-TABLOIDS</title>
 </head>
 <body>
-    <div id="header-box"></div>
+    <div id="header"></div>
 
     <main class="content">
         <h1>Tabloid sports!</h1>
@@ -35,20 +35,8 @@
         </div>
     </main>
 
-    <div id="footer-box"></div>
+    <div id="footer"></div>
 
-    <script>
-        fetch('header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-box').innerHTML = data;
-            });
-
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-box').innerHTML = data;
-            });
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>
