@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // Determine the base path based on the page's level in the directory structure
+    const basePath = typeof page_level !== 'undefined' && page_level === 1 ? '../' : './';
+
     // Function to set the theme based on user preference
     function setTheme(theme) {
         if (theme === 'dark') {
@@ -18,14 +21,24 @@ document.addEventListener("DOMContentLoaded", function() {
         setTheme(prefersDark ? 'dark' : 'light');
     }
 
-    // Load header and footer, then set up the theme toggle
+    // Load header and footer, then set up the theme toggle and fix nav links
     Promise.all([
-        fetch('/header.html').then(response => response.text()),
-        fetch('/footer.html').then(response => response.text())
+        fetch(`${basePath}header.html`).then(response => response.text()),
+        fetch(`${basePath}footer.html`).then(response => response.text())
     ]).then(([headerData, footerData]) => {
         const headerElement = document.getElementById('header');
         if (headerElement) {
             headerElement.innerHTML = headerData;
+
+            // After loading the header, prepend the base path to all nav links
+            const navLinks = headerElement.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                // Only modify relative links, not javascript:void(0)
+                if (href && !href.startsWith('javascript')) {
+                    link.setAttribute('href', `${basePath}${href}`);
+                }
+            });
         }
 
         const footerElement = document.getElementById('footer');

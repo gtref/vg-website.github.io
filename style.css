@@ -1,6 +1,6 @@
 /*
  * Corporate Modern CSS with Light/Dark Mode
- * Version 5.0
+ * Version 5.1
  */
 
 /* 1. Design Tokens and Variables
@@ -21,21 +21,21 @@
 
 /* Light Mode Colors (Default) */
 :root {
-    --bg-color: #f8f9fa;
-    --text-color: #212529;
-    --primary-color: #0d6efd;
-    --primary-color-hover: #0b5ed7;
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --primary-color: #007BFF;
+    --primary-color-hover: #0056b3;
     --border-color: #dee2e6;
-    --card-bg-color: #ffffff;
+    --card-bg-color: #f8f9fa;
     --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
 /* Dark Mode Colors */
 body.dark-mode {
-    --bg-color: #121212;
-    --text-color: #e9ecef;
-    --primary-color: #0d6efd;
-    --primary-color-hover: #3d8bfd;
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --primary-color: #007BFF;
+    --primary-color-hover: #3395ff;
     --border-color: #343a40;
     --card-bg-color: #1c1c1e;
     --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -79,7 +79,6 @@ body {
 #footer {
     text-align: center;
     font-size: 0.9rem;
-    color: var(--text-color-muted, #6c757d); /* Fallback for older browsers */
 }
 
 .content {
