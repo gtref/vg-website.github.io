@@ -1,50 +1,26 @@
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-
-    body {
-        font-family: 'Roboto', sans-serif;
-        margin: 0;
-        background-color: #f4f4f4;
-        color: #333;
-    }
-
-    .header {
-        background-color: #fff;
-        color: #333;
-        padding: 1.5rem 2rem;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        border-bottom: 1px solid #ddd;
-    }
-
-    .nav {
-        display: flex;
-        justify-content: center;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .nav a {
-        color: #333;
-        text-decoration: none;
-        padding: 0.5rem 1.5rem;
-        transition: color 0.3s ease, background-color 0.3s ease;
-        border-radius: 5px;
-    }
-
-    .nav a:hover {
-        color: #fff;
-        background-color: #007BFF;
-    }
-
-    .content {
-        padding: 2rem;
-        min-height: calc(100vh - 250px); /* Adjust based on header/footer height */
-    }
-</style>
 <header class="header">
     <nav>
         <ul class="nav">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="drop-btn">Houses</a>
+                <ul class="dropdown-content">
+                    <li><a href="/house/redwood.html">Redwood</a></li>
+                    <li><a href="/house/viard.html">Viard</a></li>
+                    <li><a href="/house/oshea.html">Oshea</a></li>
+                    <li><a href="/house/yellow.html">Yellow</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="drop-btn">Events</a>
+                <ul class="dropdown-content">
+                    <li><a href="/events/tabloids.html">Tabloid Sports</a></li>
+                    <li><a href="/events/haka-comp.html">Haka Competition</a></li>
+                    <li><a href="/events/singing.html">Singing</a></li>
+                    <li><a href="/events/swimming.html">Swimming</a></li>
+                </ul>
+            </li>
             <li><a href="index.html">Home</a></li>
             <li><a href="tabloids.html">Tabloid sports</a></li>
             <li><a href="#">Contact</a></li>
