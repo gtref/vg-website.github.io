@@ -1,30 +1,53 @@
-
 document.addEventListener("DOMContentLoaded", function() {
-    // Load header
-    fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-            const headerElement = document.getElementById('header');
-            if (headerElement) {
-                headerElement.innerHTML = data;
-            }
-        })
-        .catch(error => {
-            console.error('Error loading header:', error);
-        });
+    // Function to set the theme based on user preference
+    function setTheme(theme) {
+        if (theme === 'dark') {
+            document.body.classList.add('dark-mode');
+        } else {
+            document.body.classList.remove('dark-mode');
+        }
+    }
 
-    // Load footer
-    fetch('footer.html')
-        .then(response => response.text())
-        .then(data => {
-            const footerElement = document.getElementById('footer');
-            if (footerElement) {
-                footerElement.innerHTML = data;
-            }
-        })
-        .catch(error => {
-            console.error('Error loading footer:', error);
-        });
+    // Check for saved theme in localStorage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        setTheme(savedTheme);
+    } else {
+        // If no theme is saved, use the browser's preference
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        setTheme(prefersDark ? 'dark' : 'light');
+    }
+
+    // Load header and footer, then set up the theme toggle
+    Promise.all([
+        fetch('/header.html').then(response => response.text()),
+        fetch('/footer.html').then(response => response.text())
+    ]).then(([headerData, footerData]) => {
+        const headerElement = document.getElementById('header');
+        if (headerElement) {
+            headerElement.innerHTML = headerData;
+        }
+
+        const footerElement = document.getElementById('footer');
+        if (footerElement) {
+            footerElement.innerHTML = footerData;
+        }
+
+        // Now that the footer is loaded, we can safely add the event listener
+        const themeToggle = document.getElementById('theme-toggle');
+        if (themeToggle) {
+            // Set the toggle to the correct state
+            themeToggle.checked = document.body.classList.contains('dark-mode');
+
+            themeToggle.addEventListener('change', () => {
+                const newTheme = themeToggle.checked ? 'dark' : 'light';
+                setTheme(newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
+        }
+    }).catch(error => {
+        console.error('Error loading header or footer:', error);
+    });
 });
 
 (function(c,l,a,r,i,t,y){
