@@ -8,10 +8,12 @@
     --ad-light-text-color: #000000;
     --ad-light-primary-color: #007BFF;
     --ad-light-primary-hover: #0056b3;
+    --ad-light-border-color: #ddd;
     --ad-dark-bg-color: #000000;
     --ad-dark-text-color: #ffffff;
     --ad-dark-primary-color: #007BFF;
     --ad-dark-primary-hover: #3395ff;
+    --ad-dark-border-color: #444;
 }
 
 body {
@@ -33,9 +35,15 @@ body.dark-mode {
     max-width: 350px;
     margin: auto;
     padding: calc(var(--ad-spacing-base) * 2); /* Increased padding for close button */
+    border: 1px solid var(--ad-light-border-color);
     border-radius: var(--ad-border-radius);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
     text-align: center;
+    transition: border-color var(--ad-transition-speed) ease;
+}
+
+body.dark-mode .ad-container {
+    border-color: var(--ad-dark-border-color);
 }
 
 .ad-close-button {
@@ -129,4 +137,14 @@ body.dark-mode .collapsible {
     transition: max-height 0.3s ease-out;
     text-align: left;
     font-size: 0.9rem;
+    visibility: hidden; /* Start as hidden */
+}
+
+.collapsible-content.visible {
+    visibility: visible; /* Make visible when expanded */
+}
+
+/* Utility class to hide ads */
+.hidden {
+    display: none;
 }

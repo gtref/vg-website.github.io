@@ -1,61 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebDev Auth Ad</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="ad-container">
-        <button class="ad-close-button">&times;</button>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="ad-image">
-            <path d="M12 1L8 5v5h8V5l-4-4zm-2 9H6v10h12V10h-4v1c0 1.1-.9 2-2 2s-2-.9-2-2v-1z"/>
-        </svg>
-        <h1>Secure Your Web Applications</h1>
-        <p>With WebDev Auth, you get a robust, easy-to-integrate authentication solution designed for developers.</p>
-
+<link rel="stylesheet" href="/ads/style.css">
+<div class="ad-container">
+    <button class="ad-close-button">&times;</button>
+    <img src="https://placehold.co/300x150/000000/FFFFFF/png?text=Secure" alt="Secure Authentication" class="ad-image">
+    <div class="ad-content">
+        <p><strong>Ad:</strong> Secure your web applications with top-tier authentication solutions.</p>
         <button class="collapsible">Learn More</button>
         <div class="collapsible-content">
-            <p>Our platform provides a seamless and secure experience for your users, featuring top-tier encryption and a fully documented API. Get started in minutes and focus on what matters: building great applications.</p>
+            <p>Our service provides robust, scalable, and easy-to-integrate authentication for developers. Protect your users with multi-factor authentication, social logins, and more. Visit <a href="https://webdev-auth.pages.dev" target="_blank">webdev-auth.pages.dev</a>.</p>
         </div>
-
-        <a href="https://webdev-auth.pages.dev" class="ad-button">Get Started</a>
-        <div class="ad-label">Ad</div>
     </div>
-    <script>
-        // Theme switcher logic
-        const storedTheme = localStorage.getItem('theme');
-        if (storedTheme === 'dark') {
-            document.body.classList.add('dark-mode');
-        }
-
-        // Ad interactivity
-        document.addEventListener('DOMContentLoaded', () => {
-            const adContainer = document.querySelector('.ad-container');
-            const closeButton = document.querySelector('.ad-close-button');
-            const collapsible = document.querySelector('.collapsible');
-            const content = document.querySelector('.collapsible-content');
-
-            // Close button functionality
-            if (closeButton && adContainer) {
-                closeButton.addEventListener('click', () => {
-                    adContainer.style.display = 'none';
-                });
-            }
-
-            // Collapsible section functionality
-            if (collapsible && content) {
-                collapsible.addEventListener('click', () => {
-                    collapsible.classList.toggle('active');
-                    if (content.style.maxHeight) {
-                        content.style.maxHeight = null;
-                    } else {
-                        content.style.maxHeight = content.scrollHeight + 'px';
-                    }
-                });
-            }
-        });
-    </script>
-</body>
-</html>
+    <div class="ad-label">Ad</div>
+</div>

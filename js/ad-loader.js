@@ -4,14 +4,15 @@ document.addEventListener("DOMContentLoaded", function() {
         return; // No placeholder found, do nothing
     }
 
-    const basePath = typeof page_level !== 'undefined' && page_level === 1 ? '../' : './';
-    const currentPage = window.location.pathname.split('/').pop();
+    // Use root-relative paths for robustness
+    const currentPage = window.location.pathname;
 
     let adPath;
-    if (currentPage === 'index.html' || currentPage === 'about.html' || currentPage === '') {
-        adPath = `${basePath}ads/webdev-auth.html`;
+    // Use endsWith for more reliable matching, and check for root path
+    if (currentPage.endsWith('index.html') || currentPage.endsWith('about.html') || currentPage === '/') {
+        adPath = '/ads/webdev-auth.html';
     } else {
-        adPath = `${basePath}ads/hubworld.html`;
+        adPath = '/ads/hubworld.html';
     }
 
     fetch(adPath)
@@ -23,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .then(adHtml => {
             adPlaceholder.innerHTML = adHtml;
+            initializeAd(adPlaceholder); // Set up interactivity
             adPlaceholder.classList.add('ad-loaded'); // Signal that the ad is ready
         })
         .catch(error => {
@@ -30,3 +32,31 @@ document.addEventListener("DOMContentLoaded", function() {
             adPlaceholder.innerHTML = '<p style="text-align:center; color:red;">Advertisement could not be loaded.</p>';
         });
 });
+
+function initializeAd(adPlaceholder) {
+    const adContainer = adPlaceholder.querySelector('.ad-container');
+    if (!adContainer) return;
+
+    // Close button functionality
+    const closeButton = adContainer.querySelector('.ad-close-button');
+    if (closeButton) {
+        closeButton.addEventListener('click', () => {
+            adContainer.style.display = 'none';
+        });
+    }
+
+    // Collapsible "Learn More" functionality
+    const collapsibleButton = adContainer.querySelector('.collapsible');
+    if (collapsibleButton) {
+        collapsibleButton.addEventListener('click', function() {
+            this.classList.toggle('active');
+            const content = this.nextElementSibling;
+            content.classList.toggle('visible'); // Toggle visibility class
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    }
+}
