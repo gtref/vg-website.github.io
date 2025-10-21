@@ -1,47 +1,55 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const adPlaceholder = document.getElementById('ad-placeholder');
-    if (!adPlaceholder) {
-        return; // No placeholder found, do nothing
+    const adIframe = document.getElementById('ad-placeholder');
+    if (!adIframe) {
+        return; // No iframe found, do nothing
     }
 
-    // Use root-relative paths for robustness
-    const currentPage = window.location.pathname;
+    const basePath = typeof page_level !== 'undefined' && page_level === 1 ? '../' : './';
+    const currentPage = window.location.pathname.split('/').pop();
 
-    let adPath;
-    // Use endsWith for more reliable matching, and check for root path
-    if (currentPage.endsWith('index.html') || currentPage.endsWith('about.html') || currentPage === '/') {
-        adPath = '/ads/webdev-auth.html';
+    let adContent;
+    if (currentPage === 'index.html' || currentPage === 'about.html' || currentPage === '') {
+        adContent = webdevAuthAdContent;
     } else {
-        adPath = '/ads/hubworld.html';
+        adContent = hubworldAdContent;
     }
 
-    fetch(adPath)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Failed to fetch ad: ${response.statusText}`);
+    // Adjust the stylesheet path to be relative to the ads folder
+    const correctedAdContent = adContent.replace('href="style.css"', `href="${basePath}ads/style.css"`);
+    adIframe.srcdoc = correctedAdContent;
+
+    adIframe.onload = function() {
+        try {
+            const iframeDoc = adIframe.contentDocument || adIframe.contentWindow.document;
+            if (!iframeDoc) {
+                throw new Error("Cannot access iframe content.");
             }
-            return response.text();
-        })
-        .then(adHtml => {
-            adPlaceholder.innerHTML = adHtml;
-            initializeAd(adPlaceholder); // Set up interactivity
-            adPlaceholder.classList.add('ad-loaded'); // Signal that the ad is ready
-        })
-        .catch(error => {
-            console.error('Error loading ad:', error);
-            adPlaceholder.innerHTML = '<p style="text-align:center; color:red;">Advertisement could not be loaded.</p>';
-        });
+
+            // Auto-resize iframe to fit its content
+            const adContainer = iframeDoc.querySelector('.ad-container');
+            if (adContainer) {
+                // Use a small delay to ensure all content (like images) has loaded before calculating height
+                setTimeout(() => {
+                    adIframe.style.height = adContainer.scrollHeight + 'px';
+                }, 100);
+            }
+
+            initializeAd(iframeDoc, adIframe);
+        } catch (error) {
+            console.error('Error initializing ad in iframe:', error);
+        }
+    };
 });
 
-function initializeAd(adPlaceholder) {
-    const adContainer = adPlaceholder.querySelector('.ad-container');
+function initializeAd(iframeDoc, adIframe) {
+    const adContainer = iframeDoc.querySelector('.ad-container');
     if (!adContainer) return;
 
     // Close button functionality
     const closeButton = adContainer.querySelector('.ad-close-button');
     if (closeButton) {
         closeButton.addEventListener('click', () => {
-            adContainer.style.display = 'none';
+            adIframe.style.display = 'none';
         });
     }
 
@@ -57,6 +65,10 @@ function initializeAd(adPlaceholder) {
             } else {
                 content.style.maxHeight = content.scrollHeight + "px";
             }
+            // Recalculate iframe height after expanding/collapsing
+            setTimeout(() => {
+                adIframe.style.height = adContainer.scrollHeight + 'px';
+            }, 100);
         });
     }
 }
