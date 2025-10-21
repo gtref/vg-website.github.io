@@ -1,0 +1,132 @@
+/* Ad-specific CSS */
+:root {
+    --ad-font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --ad-spacing-base: 1rem;
+    --ad-border-radius: 0.5rem;
+    --ad-transition-speed: 0.2s;
+    --ad-light-bg-color: #ffffff;
+    --ad-light-text-color: #000000;
+    --ad-light-primary-color: #007BFF;
+    --ad-light-primary-hover: #0056b3;
+    --ad-dark-bg-color: #000000;
+    --ad-dark-text-color: #ffffff;
+    --ad-dark-primary-color: #007BFF;
+    --ad-dark-primary-hover: #3395ff;
+}
+
+body {
+    font-family: var(--ad-font-family);
+    background-color: var(--ad-light-bg-color);
+    color: var(--ad-light-text-color);
+    margin: 0;
+    padding: var(--ad-spacing-base);
+    transition: background-color var(--ad-transition-speed) ease, color var(--ad-transition-speed) ease;
+}
+
+body.dark-mode {
+    background-color: var(--ad-dark-bg-color);
+    color: var(--ad-dark-text-color);
+}
+
+.ad-container {
+    position: relative; /* Needed for positioning child elements */
+    max-width: 350px;
+    margin: auto;
+    padding: calc(var(--ad-spacing-base) * 2); /* Increased padding for close button */
+    border-radius: var(--ad-border-radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.ad-close-button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #aaa;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+.ad-close-button:hover {
+    color: var(--ad-light-text-color);
+}
+
+body.dark-mode .ad-close-button:hover {
+    color: var(--ad-dark-text-color);
+}
+
+.ad-label {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.75rem;
+    font-size: 0.7rem;
+    color: #ccc;
+}
+
+
+.ad-image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--ad-border-radius);
+    margin-bottom: var(--ad-spacing-base);
+}
+
+.ad-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--ad-border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color var(--ad-transition-speed) ease, transform var(--ad-transition-speed) ease;
+    background-color: var(--ad-light-primary-color);
+    color: var(--ad-light-bg-color);
+}
+
+.ad-button:hover {
+    transform: translateY(-2px);
+    background-color: var(--ad-light-primary-hover);
+}
+
+body.dark-mode .ad-button {
+    background-color: var(--ad-dark-primary-color);
+}
+
+body.dark-mode .ad-button:hover {
+    background-color: var(--ad-dark-primary-hover);
+}
+
+/* Collapsible Section Styles */
+.collapsible {
+    background-color: transparent;
+    color: var(--ad-light-primary-color);
+    cursor: pointer;
+    padding: var(--ad-spacing-base) 0;
+    width: 100%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+body.dark-mode .collapsible {
+    color: var(--ad-dark-primary-color);
+}
+
+.collapsible:hover {
+    text-decoration: underline;
+}
+
+.collapsible-content {
+    padding: 0 var(--ad-spacing-base);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    text-align: left;
+    font-size: 0.9rem;
+}
