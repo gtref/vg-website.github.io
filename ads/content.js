@@ -2,12 +2,12 @@ const webdevAuthAdContent = `
 <link rel="stylesheet" href="style.css">
 <div class="ad-container">
     <button class="ad-close-button">&times;</button>
-    <img src="https://placehold.co/300x150/000000/FFFFFF/png?text=Secure" alt="Secure Authentication" class="ad-image">
+    <img src="https://placehold.co/300x150/007BFF/FFFFFF/png?text=Captcha" alt="Captcha Service" class="ad-image">
     <div class="ad-content">
-        <p><strong>Ad:</strong> Secure your web applications with top-tier authentication solutions.</p>
+        <p><strong>Ad:</strong> Protect your site with a simple, user-friendly captcha service.</p>
         <button class="collapsible">Learn More</button>
         <div class="collapsible-content">
-            <p>Our service provides robust, scalable, and easy-to-integrate authentication for developers. Protect your users with multi-factor authentication, social logins, and more. Visit <a href="https://webdev-auth.pages.dev" target="_blank">webdev-auth.pages.dev</a>.</p>
+            <p>WebDev Auth provides an easy-to-integrate captcha that keeps your site secure from bots while ensuring a smooth experience for your users. Visit <a href="https://webdev-auth.pages.dev" target="_blank">webdev-auth.pages.dev</a> to get started.</p>
         </div>
     </div>
     <div class="ad-label">Ad</div>
@@ -18,10 +18,10 @@ const hubworldAdContent = `
 <link rel="stylesheet" href="style.css">
 <div class="ad-container">
     <button class="ad-close-button">&times;</button>
-    <img src="https://placehold.co/300x150/007BFF/FFFFFF/png?text=HubWorld" alt="HubWorld Events" class="ad-image">
+    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,h=156,fit=crop/mk3veNoqkZHzgQNv/capture_d_a-c-cran_2025-07-28_a-_10.21.43-removebg-preview-ALpPNkZrJVt3Q475.png" alt="HubWorld Game Servers" class="ad-image">
     <div class="ad-content">
-        <p><strong>Ad:</strong> Your hub for tech events, workshops, and conferences.</p>
-        <p>Connect with industry leaders and innovators. Explore the future of technology at <a href="https://hubworld.net" target="_blank">hubworld.net</a>.</p>
+        <p><strong>Ad:</strong> High-performance game server hosting.</p>
+        <p>Experience zero lag and zero stress with our powerful, stable, and instantly available game servers. Visit <a href="https://hubworld.net" target="_blank">hubworld.net</a> to get started.</p>
     </div>
     <div class="ad-label">Ad</div>
 </div>
