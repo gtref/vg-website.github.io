@@ -1,40 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HubWorld Ad</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="ad-container">
-        <button class="ad-close-button">&times;</button>
-        <img src="https://images.unsplash.com/photo-1597138768744-9f97be8cdd64?auto=format&fit=crop&w=641&h=664" alt="Server rack" class="ad-image">
-        <h1>HubWorld</h1>
-        <p>Create, play, manage! Hubworld offers you the cloud services you need.</p>
-        <p>Zero lag. Zero stress. Just fun. HubWorld is the reference platform for hosting your online game servers, tailored for epic events.</p>
-        <a href="https://hubworld.net" class="ad-button">Get Started</a>
-        <div class="ad-label">Ad</div>
+<link rel="stylesheet" href="/ads/style.css">
+<div class="ad-container">
+    <button class="ad-close-button">&times;</button>
+    <img src="https://placehold.co/300x150/007BFF/FFFFFF/png?text=HubWorld" alt="HubWorld Events" class="ad-image">
+    <div class="ad-content">
+        <p><strong>Ad:</strong> Your hub for tech events, workshops, and conferences.</p>
+        <p>Connect with industry leaders and innovators. Explore the future of technology at <a href="https://hubworld.net" target="_blank">hubworld.net</a>.</p>
     </div>
-    <script>
-        // Theme switcher logic
-        const storedTheme = localStorage.getItem('theme');
-        if (storedTheme === 'dark') {
-            document.body.classList.add('dark-mode');
-        }
-
-        // Ad interactivity
-        document.addEventListener('DOMContentLoaded', () => {
-            const adContainer = document.querySelector('.ad-container');
-            const closeButton = document.querySelector('.ad-close-button');
-
-            // Close button functionality
-            if (closeButton && adContainer) {
-                closeButton.addEventListener('click', () => {
-                    adContainer.style.display = 'none';
-                });
-            }
-        });
-    </script>
-</body>
-</html>
+    <div class="ad-label">Ad</div>
+</div>
