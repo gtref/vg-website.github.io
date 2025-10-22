@@ -67,6 +67,45 @@ document.addEventListener("DOMContentLoaded", function() {
     }).catch(error => {
         console.error('Error loading header or footer:', error);
     });
+
+    // Consent Modal Logic
+    const consentStatus = sessionStorage.getItem('clarityConsent');
+
+    function showConsentModal() {
+        const modalHTML = `
+            <div class="consent-overlay visible" id="consent-overlay">
+                <div class="consent-modal">
+                    <h2>Privacy Consent</h2>
+                    <p>We use Microsoft Clarity to improve our website. By clicking "Allow", you consent to the collection of usage data. You can learn more in our privacy policy.</p>
+                    <div class="consent-buttons">
+                        <button class="button" id="consent-allow">Allow</button>
+                        <button class="button button-secondary" id="consent-deny">Deny</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+        document.getElementById('consent-allow').addEventListener('click', () => {
+            sessionStorage.setItem('clarityConsent', 'granted');
+            window.clarity('consentv2', { ad_Storage: "granted", analytics_Storage: "granted" });
+            document.getElementById('consent-overlay').remove();
+        });
+
+        document.getElementById('consent-deny').addEventListener('click', () => {
+            sessionStorage.setItem('clarityConsent', 'denied');
+            window.clarity('consentv2', { ad_Storage: "denied", analytics_Storage: "denied" });
+            document.getElementById('consent-overlay').remove();
+        });
+    }
+
+    if (!consentStatus) {
+        showConsentModal();
+    } else if (consentStatus === 'granted') {
+        window.clarity('consentv2', { ad_Storage: "granted", analytics_Storage: "granted" });
+    } else if (consentStatus === 'denied') {
+        window.clarity('consentv2', { ad_Storage: "denied", analytics_Storage: "denied" });
+    }
 });
 
 (function(c,l,a,r,i,t,y){
