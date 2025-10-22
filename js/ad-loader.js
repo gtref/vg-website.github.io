@@ -4,15 +4,17 @@ document.addEventListener("DOMContentLoaded", function() {
         return; // No iframe found, do nothing
     }
 
-    const basePath = typeof page_level !== 'undefined' && page_level === 1 ? '../' : './';
-    const currentPage = window.location.pathname.split('/').pop();
+    // Array of all available ad content
+    const allAds = [
+        webdevAuthAdContent,
+        hubworldAdContent,
+        googleDevelopersAdContent
+    ];
 
-    let adContent;
-    if (currentPage === 'index.html' || currentPage === 'about.html' || currentPage === '') {
-        adContent = webdevAuthAdContent;
-    } else {
-        adContent = hubworldAdContent;
-    }
+    // Select a random ad
+    const adContent = allAds[Math.floor(Math.random() * allAds.length)];
+
+    const basePath = typeof page_level !== 'undefined' && page_level === 1 ? '../' : './';
 
     // Adjust the stylesheet path to be relative to the ads folder
     const correctedAdContent = adContent.replace('href="style.css"', `href="${basePath}ads/style.css"`);

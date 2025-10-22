@@ -1,4 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // Create and append the Bootstrap Icons stylesheet
+    const bootstrapIconsLink = document.createElement('link');
+    bootstrapIconsLink.rel = 'stylesheet';
+    bootstrapIconsLink.href = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css';
+    document.head.appendChild(bootstrapIconsLink);
+
     // Determine the base path based on the page's level in the directory structure
     const basePath = typeof page_level !== 'undefined' && page_level === 1 ? '../' : './';
 
