@@ -167,6 +167,7 @@ hr {
     background-color: var(--primary-color-hover);
     text-decoration: none;
     color: #fff;
+    transform: translateY(-2px);
 }
 
 /* 6. Navigation
@@ -191,6 +192,7 @@ hr {
 .nav a:hover {
     color: #fff;
     background-color: var(--primary-color);
+    transform: translateY(-2px);
 }
 
 .dropdown {
@@ -261,8 +263,91 @@ hr {
 
 .social-links a:hover {
     color: var(--primary-color);
+    transform: translateY(-2px);
 }
 
 #footer {
     text-align: initial;
+}
+
+/* 9. Animations
+---------------------------------------------------------------------- */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#header, .content, #footer {
+    animation: fade-in 0.5s ease-in-out;
+}
+
+/* 10. Consent Modal
+---------------------------------------------------------------------- */
+.consent-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.consent-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.consent-modal {
+    background-color: var(--card-bg-color);
+    padding: calc(var(--spacing-base) * 2);
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.consent-overlay.visible .consent-modal {
+    transform: scale(1);
+}
+
+.consent-modal h2 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-base);
+}
+
+.consent-modal p {
+    margin-bottom: calc(var(--spacing-base) * 1.5);
+}
+
+.consent-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-base);
+}
+
+.button-secondary {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.button-secondary:hover {
+    background-color: var(--border-color);
+    color: var(--text-color);
 }
