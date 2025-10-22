@@ -14,6 +14,19 @@ const webdevAuthAdContent = `
 </div>
 `;
 
+const googleDevelopersAdContent = `
+<link rel="stylesheet" href="style.css">
+<div class="ad-container">
+    <button class="ad-close-button">&times;</button>
+    <img src="https://placehold.co/300x150/4285F4/FFFFFF/png?text=Google+for+Developers" alt="Google for Developers" class="ad-image">
+    <div class="ad-content">
+        <p><strong>Ad:</strong> Build with Google's latest tools.</p>
+        <p>Access APIs, documentation, and resources for Android, AI, Cloud, and more. Visit <a href="https://developers.google.com" target="_blank">developers.google.com</a> to learn more.</p>
+    </div>
+    <div class="ad-label">Ad</div>
+</div>
+`;
+
 const hubworldAdContent = `
 <link rel="stylesheet" href="style.css">
 <div class="ad-container">
