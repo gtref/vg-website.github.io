@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <div class="consent-overlay visible" id="consent-overlay">
                 <div class="consent-modal">
                     <h2>Privacy Consent</h2>
-                    <p>We use Microsoft Clarity to improve our website. By clicking "Allow", you consent to the collection of usage data. You can learn more in our privacy policy.</p>
+                    <p>We use microsoft clarity for security to make sure that BOT's are not using this site. By clicking "Allow", you consent to the collection of usage data. You can learn more in our privacy policy.</p>
                     <div class="consent-buttons">
                         <button class="button" id="consent-allow">Allow</button>
                         <button class="button button-secondary" id="consent-deny">Deny</button>
