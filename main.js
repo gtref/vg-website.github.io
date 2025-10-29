@@ -8,6 +8,12 @@ document.addEventListener("DOMContentLoaded", function() {
     // Determine the base path based on the page's level in the directory structure
     const basePath = typeof page_level !== 'undefined' && page_level === 1 ? '../' : './';
 
+    // Create and append the favicon link
+    const faviconLink = document.createElement('link');
+    faviconLink.rel = 'icon';
+    faviconLink.href = `${basePath}favicon.ico`;
+    document.head.appendChild(faviconLink);
+
     // Function to set the theme based on user preference
     function setTheme(theme) {
         if (theme === 'dark') {
