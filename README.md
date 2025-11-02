@@ -1,4 +1,4 @@
-# VG (vertical group) Website
+# VG (vertical group) Website rev 1
 ___
 
 This website is a progect from my year 10 STEM project. It is a website about Vertical Group.[^web]
