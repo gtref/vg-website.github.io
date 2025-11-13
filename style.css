@@ -94,16 +94,16 @@ body.dark-mode header {
 }
 
 main {
-  padding: 1rem;
+  padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .hero {
   text-align: center;
-  padding: 4rem 1rem;
+  padding: 4rem 2rem;
   background-color: var(--md-sys-color-surface-container-light);
-  border-radius: 1.5rem;
+  border-radius: 2rem;
   margin-bottom: 2rem;
 }
 
@@ -114,12 +114,14 @@ body.dark-mode .hero {
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 md-filled-card {
   --md-filled-card-container-color: var(--md-sys-color-surface-container-highest-light);
-  padding: 1.5rem;
+  padding: 2rem;
+  border-radius: 2rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 body.dark-mode md-filled-card {
