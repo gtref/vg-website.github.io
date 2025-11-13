@@ -1,130 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
 :root {
-    --md-sys-color-primary: #007BFF;
-    --md-sys-color-on-primary: #FFFFFF;
-    --md-sys-color-primary-container: #C7E5FF;
-    --md-sys-color-on-primary-container: #001D34;
-    --md-sys-color-secondary: #535F70;
-    --md-sys-color-on-secondary: #FFFFFF;
-    --md-sys-color-secondary-container: #D6E3F7;
-    --md-sys-color-on-secondary-container: #101C2B;
-    --md-sys-color-tertiary: #6B5778;
-    --md-sys-color-on-tertiary: #FFFFFF;
-    --md-sys-color-tertiary-container: #F3DAFF;
-    --md-sys-color-on-tertiary-container: #251431;
-    --md-sys-color-error: #BA1A1A;
-    --md-sys-color-on-error: #FFFFFF;
-    --md-sys-color-error-container: #FFDAD6;
-    --md-sys-color-on-error-container: #410002;
-    --md-sys-color-background: #F8F9FA;
-    --md-sys-color-on-background: #1A1C1E;
-    --md-sys-color-surface: #F8F9FA;
-    --md-sys-color-on-surface: #1A1C1E;
-    --md-sys-color-surface-variant: #DFE2EB;
-    --md-sys-color-on-surface-variant: #42474E;
-    --md-sys-color-outline: #73777F;
-    --md-sys-color-shadow: #000000;
-    --md-sys-color-inverse-surface: #2F3033;
-    --md-sys-color-inverse-on-surface: #F1F0F4;
-    --md-sys-color-inverse-primary: #8BCEFF;
+  --md-ref-typeface-brand: 'Roboto', sans-serif;
+  --md-ref-typeface-plain: 'Roboto', sans-serif;
+
+  /* Material Theme Builder light theme */
+  --md-sys-color-primary-light: #6750A4;
+  --md-sys-color-on-primary-light: #FFFFFF;
+  --md-sys-color-primary-container-light: #EADDFF;
+  --md-sys-color-on-primary-container-light: #21005D;
+  --md-sys-color-secondary-light: #625B71;
+  --md-sys-color-on-secondary-light: #FFFFFF;
+  --md-sys-color-secondary-container-light: #E8DEF8;
+  --md-sys-color-on-secondary-container-light: #1D192B;
+  --md-sys-color-tertiary-light: #7D5260;
+  --md-sys-color-on-tertiary-light: #FFFFFF;
+  --md-sys-color-tertiary-container-light: #FFD8E4;
+  --md-sys-color-on-tertiary-container-light: #31111D;
+  --md-sys-color-error-light: #B3261E;
+  --md-sys-color-on-error-light: #FFFFFF;
+  --md-sys-color-error-container-light: #F9DEDC;
+  --md-sys-color-on-error-container-light: #410E0B;
+  --md-sys-color-outline-light: #79747E;
+  --md-sys-color-background-light: #FFFBFE;
+  --md-sys-color-on-background-light: #1C1B1F;
+  --md-sys-color-surface-light: #FFFBFE;
+  --md-sys-color-on-surface-light: #1C1B1F;
+  --md-sys-color-surface-variant-light: #E7E0EC;
+  --md-sys-color-on-surface-variant-light: #49454F;
+  --md-sys-color-inverse-surface-light: #313033;
+  --md-sys-color-inverse-on-surface-light: #F4EFF4;
+  --md-sys-color-inverse-primary-light: #D0BCFF;
+  --md-sys-color-shadow-light: #000000;
+  --md-sys-color-surface-tint-light: #6750A4;
+  --md-sys-color-outline-variant-light: #CAC4D0;
+  --md-sys-color-scrim-light: #000000;
+
+  /* Material Theme Builder dark theme */
+  --md-sys-color-primary-dark: #D0BCFF;
+  --md-sys-color-on-primary-dark: #381E72;
+  --md-sys-color-primary-container-dark: #4F378B;
+  --md-sys-color-on-primary-container-dark: #EADDFF;
+  --md-sys-color-secondary-dark: #CCC2DC;
+  --md-sys-color-on-secondary-dark: #332D41;
+  --md-sys-color-secondary-container-dark: #4A4458;
+  --md-sys-color-on-secondary-container-dark: #E8DEF8;
+  --md-sys-color-tertiary-dark: #EFB8C8;
+  --md-sys-color-on-tertiary-dark: #492532;
+  --md-sys-color-tertiary-container-dark: #633B48;
+  --md-sys-color-on-tertiary-container-dark: #FFD8E4;
+  --md-sys-color-error-dark: #F2B8B5;
+  --md-sys-color-on-error-dark: #601410;
+  --md-sys-color-error-container-dark: #8C1D18;
+  --md-sys-color-on-error-container-dark: #F9DEDC;
+  --md-sys-color-outline-dark: #938F99;
+  --md-sys-color-background-dark: #1C1B1F;
+  --md-sys-color-on-background-dark: #E6E1E5;
+  --md-sys-color-surface-dark: #1C1B1F;
+  --md-sys-color-on-surface-dark: #E6E1E5;
+  --md-sys-color-surface-variant-dark: #49454F;
+  --md-sys-color-on-surface-variant-dark: #CAC4D0;
+  --md-sys-color-inverse-surface-dark: #E6E1E5;
+  --md-sys-color-inverse-on-surface-dark: #313033;
+  --md-sys-color-inverse-primary-dark: #6750A4;
+  --md-sys-color-shadow-dark: #000000;
+  --md-sys-color-surface-tint-dark: #D0BCFF;
+  --md-sys-color-outline-variant-dark: #49454F;
+  --md-sys-color-scrim-dark: #000000;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--md-sys-color-background);
-    color: var(--md-sys-color-on-background);
-    margin: 0;
-}
-
-.hero {
-    text-align: center;
-    padding: 4rem 1rem;
-    background-color: var(--md-sys-color-surface-variant);
-}
-
-.content {
-    padding: 1rem;
-    max-width: 1200px;
-    margin: 2rem auto;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-}
-
-.grid-item {
-    padding: 1.5rem;
-}
-
-.quick-links {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-
-md-filled-card {
-    padding: 1.5rem;
-}
-
-#footer {
-    text-align: center;
-    padding: 2rem 0;
-    margin-top: 2rem;
-    background-color: var(--md-sys-color-surface-variant);
-}
-
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
-.social-links a {
-    color: var(--md-sys-color-on-surface-variant);
-    text-decoration: none;
-    font-size: 1.5rem;
-    margin-left: 1rem;
-}
-
-.social-links a:hover {
-    color: var(--md-sys-color-primary);
-}
-
-#consent-dialog {
-    --md-dialog-container-color: var(--md-sys-color-surface);
+  background-color: var(--md-sys-color-background-light);
+  color: var(--md-sys-color-on-background-light);
+  font-family: var(--md-ref-typeface-plain);
+  margin: 0;
+  padding: 0;
 }
 
 body.dark-mode {
-    --md-sys-color-primary: #8BCEFF;
-    --md-sys-color-on-primary: #003355;
-    --md-sys-color-primary-container: #004A7A;
-    --md-sys-color-on-primary-container: #C7E5FF;
-    --md-sys-color-secondary: #B9C8DA;
-    --md-sys-color-on-secondary: #253140;
-    --md-sys-color-secondary-container: #3B4858;
-    --md-sys-color-on-secondary-container: #D6E3F7;
-    --md-sys-color-tertiary: #D6BEE4;
-    --md-sys-color-on-tertiary: #3B2948;
-    --md-sys-color-tertiary-container: #523F5F;
-    --md-sys-color-on-tertiary-container: #F3DAFF;
-    --md-sys-color-error: #FFB4AB;
-    --md-sys-color-on-error: #690005;
-    --md-sys-color-error-container: #93000A;
-    --md-sys-color-on-error-container: #FFB4AB;
-    --md-sys-color-background: #1A1C1E;
-    --md-sys-color-on-background: #E2E2E6;
-    --md-sys-color-surface: #1A1C1E;
-    --md-sys-color-on-surface: #E2E2E6;
-    --md-sys-color-surface-variant: #42474E;
-    --md-sys-color-on-surface-variant: #C3C7CF;
-    --md-sys-color-outline: #8D9199;
-    --md-sys-color-shadow: #000000;
-    --md-sys-color-inverse-surface: #E2E2E6;
-    --md-sys-color-inverse-on-surface: #2F3033;
-    --md-sys-color-inverse-primary: #0062A3;
+  background-color: var(--md-sys-color-background-dark);
+  color: var(--md-sys-color-on-background-dark);
+}
+
+header {
+  background-color: var(--md-sys-color-surface-light);
+  padding: 1rem;
+  border-bottom: 1px solid var(--md-sys-color-outline-variant-light);
+}
+
+body.dark-mode header {
+  background-color: var(--md-sys-color-surface-dark);
+  border-bottom: 1px solid var(--md-sys-color-outline-variant-dark);
+}
+
+main {
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero {
+  text-align: center;
+  padding: 4rem 1rem;
+  background-color: var(--md-sys-color-surface-container-light);
+  border-radius: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+body.dark-mode .hero {
+  background-color: var(--md-sys-color-surface-container-dark);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+md-filled-card {
+  --md-filled-card-container-color: var(--md-sys-color-surface-container-highest-light);
+  padding: 1.5rem;
+}
+
+body.dark-mode md-filled-card {
+  --md-filled-card-container-color: var(--md-sys-color-surface-container-highest-dark);
+}
+
+#footer {
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 2rem;
+  background-color: var(--md-sys-color-surface-container-light);
+}
+
+body.dark-mode #footer {
+  background-color: var(--md-sys-color-surface-container-dark);
 }
