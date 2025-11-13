@@ -5,21 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>const page_level = 0;</script>
     <link rel="stylesheet" href="style.css">
-    <title>About Us - MY-VG-WEBSITE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script type="module">
+      import 'https://esm.run/@material/web/all.js';
+      import {styles as typescaleStyles} from 'https://esm.run/@material/web/typography/md-typescale-styles.js';
+
+      document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+    </script>
+    <title>About - St. Peter's College PN</title>
 </head>
 <body>
     <div id="header"></div>
 
-    <main class="content">
-        <h1>About Us</h1>
-        <p>This page will contain information about the VG website.</p>
+    <main>
+        <div class="hero">
+            <h1 class="md-display-large">About St. Peter's College</h1>
+        </div>
+
+        <div class="content grid-container">
+            <md-filled-card class="grid-item">
+                <h2 class="md-title-large">Our History</h2>
+                <p class="md-body-large">St Peter’s College is a co-educational Catholic secondary school for Years 7 to 13, located in Palmerston North, New Zealand. The school was founded in 1974 and has a strong tradition of academic excellence and Catholic character.</p>
+            </md-filled-card>
+
+            <md-filled-card class="grid-item">
+                <h2 class="md-title-large">Principal's Welcome</h2>
+                <p class="md-body-large">At St Peter’s College we promise to place the education and achievement of your child at the centre of everything we do. Our College Vision has created a unique educational environment that delivers on this promise. Through a range of initiatives, St Peter’s has developed a distinctiveness that places it at the forefront of 21st century education, not only in Palmerston North, but also in New Zealand.</p>
+            </md-filled-card>
+        </div>
     </main>
 
-    <iframe id="ad-placeholder" style="border:none; width:100%; height:auto;"></iframe>
     <div id="footer"></div>
 
     <script src="main.js" defer></script>
-    <script src="ads/content.js"></script>
-    <script src="js/ad-loader.js"></script>
 </body>
 </html>

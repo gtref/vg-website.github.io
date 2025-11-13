@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>const page_level = 0;</script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script type="module">
+      import 'https://esm.run/@material/web/all.js';
+      import {styles as typescaleStyles} from 'https://esm.run/@material/web/typography/md-typescale-styles.js';
+
+      document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+    </script>
+    <title>Contact Us - St. Peter's College PN</title>
+</head>
+<body>
+    <div id="header"></div>
+
+    <main>
+        <div class="hero">
+            <h1 class="md-display-large">Contact Us</h1>
+        </div>
+
+        <div class="content grid-container">
+            <md-filled-card class="grid-item">
+                <h2 class="md-title-large">Get in Touch</h2>
+                <p class="md-body-large">
+                    St Peter’s College<br>
+                    1 Holdsworth Avenue<br>
+                    Milson<br>
+                    Palmerston North<br>
+                    4414<br>
+                    New Zealand
+                </p>
+                <p class="md-body-large">
+                    Phone: 06 354 4198<br>
+                    Email: office@stpeterspn.school.nz
+                </p>
+            </md-filled-card>
+
+            <md-filled-card class="grid-item">
+                <h2 class="md-title-large">Send us a Message</h2>
+                <form id="contact-form">
+                    <md-filled-text-field label="Your Name" style="width: 100%;"></md-filled-text-field>
+                    <md-filled-text-field label="Your Email" type="email" style="width: 100%;"></md-filled-text-field>
+                    <md-filled-text-field label="Message" type="textarea" rows="5" style="width: 100%;"></md-filled-text-field>
+                    <md-filled-button type="submit">Send</md-filled-button>
+                </form>
+            </md-filled-card>
+        </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="main.js" defer></script>
+</body>
+</html>

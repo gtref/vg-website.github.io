@@ -5,24 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>const page_level = 0;</script>
     <link rel="stylesheet" href="style.css">
-    <title>MY-VG-WEBSITE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script type="module">
+      import 'https://esm.run/@material/web/all.js';
+      import {styles as typescaleStyles} from 'https://esm.run/@material/web/typography/md-typescale-styles.js';
+
+      document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+    </script>
+    <title>St. Peter's College PN</title>
 </head>
 <body>
     <div id="header"></div>
 
     <main class="content">
-        <h1>Welcome to the VG website!</h1>
-        <p>Here you can find diffrent info about house vg.</p>
-        <hr>
-        <h2>Information</h2>
-        <p>Vertical group is a activity group that you are placed in when you first enroll at stpeters palmerston north. In vertical group you will meet new people and be forced out of your comfort zone.</p>
+        <div class="hero">
+            <h1 class="md-display-large">Welcome to St. Peter's College</h1>
+            <p class="md-headline-small">Standing Tall, Promoting Excellence and Developing Understanding.</p>
+        </div>
+
+        <div class="grid-container">
+            <md-filled-card class="grid-item">
+                <h2 class="md-title-large">Our Vision</h2>
+                <p class="md-body-large">St Peter's College celebrates being a Catholic faith community, where students, teachers and families work in partnership to develop empowered, self managing, lifelong learners who live the Gospel values in a changing world.</p>
+            </md-filled-card>
+
+            <md-filled-card class="grid-item">
+                <h2 class="md-title-large">Quick Links</h2>
+                <div class="quick-links">
+                    <md-filled-button href="enrolment.html">Enrol Now</md-filled-button>
+                    <md-filled-button href="news.html">Latest News</md-filled-button>
+                    <md-filled-button href="contact.html">Contact Us</md-filled-button>
+                </div>
+            </md-filled-card>
+        </div>
     </main>
 
-    <iframe id="ad-placeholder" style="border:none; width:100%; height:auto;"></iframe>
     <div id="footer"></div>
 
     <script src="main.js" defer></script>
-    <script src="ads/content.js"></script>
-    <script src="js/ad-loader.js"></script>
 </body>
 </html>
