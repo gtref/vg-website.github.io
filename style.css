@@ -1,353 +1,130 @@
-/*
- * Corporate Modern CSS with Light/Dark Mode
- * Version 5.1
- */
-
-/* 1. Design Tokens and Variables
----------------------------------------------------------------------- */
 :root {
-    /* Font Families */
-    --font-family-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-
-    /* Spacing & Sizing */
-    --spacing-base: 1rem;
-    --border-radius: 0.5rem;
-    --container-max-width: 1140px;
-
-    /* Transitions */
-    --transition-speed: 0.2s;
-}
-
-/* Light Mode Colors (Default) */
-:root {
-    --bg-color: #ffffff;
-    --text-color: #000000;
-    --primary-color: #007BFF;
-    --primary-color-hover: #0056b3;
-    --border-color: #dee2e6;
-    --card-bg-color: #f8f9fa;
-    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-}
-
-/* Dark Mode Colors */
-body.dark-mode {
-    --bg-color: #000000;
-    --text-color: #ffffff;
-    --primary-color: #007BFF;
-    --primary-color-hover: #3395ff;
-    --border-color: #343a40;
-    --card-bg-color: #1c1c1e;
-    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* 2. General Body and Root Styles
----------------------------------------------------------------------- */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
+    --md-sys-color-primary: #007BFF;
+    --md-sys-color-on-primary: #FFFFFF;
+    --md-sys-color-primary-container: #C7E5FF;
+    --md-sys-color-on-primary-container: #001D34;
+    --md-sys-color-secondary: #535F70;
+    --md-sys-color-on-secondary: #FFFFFF;
+    --md-sys-color-secondary-container: #D6E3F7;
+    --md-sys-color-on-secondary-container: #101C2B;
+    --md-sys-color-tertiary: #6B5778;
+    --md-sys-color-on-tertiary: #FFFFFF;
+    --md-sys-color-tertiary-container: #F3DAFF;
+    --md-sys-color-on-tertiary-container: #251431;
+    --md-sys-color-error: #BA1A1A;
+    --md-sys-color-on-error: #FFFFFF;
+    --md-sys-color-error-container: #FFDAD6;
+    --md-sys-color-on-error-container: #410002;
+    --md-sys-color-background: #F8F9FA;
+    --md-sys-color-on-background: #1A1C1E;
+    --md-sys-color-surface: #F8F9FA;
+    --md-sys-color-on-surface: #1A1C1E;
+    --md-sys-color-surface-variant: #DFE2EB;
+    --md-sys-color-on-surface-variant: #42474E;
+    --md-sys-color-outline: #73777F;
+    --md-sys-color-shadow: #000000;
+    --md-sys-color-inverse-surface: #2F3033;
+    --md-sys-color-inverse-on-surface: #F1F0F4;
+    --md-sys-color-inverse-primary: #8BCEFF;
 }
 
 body {
-    font-family: var(--font-family-sans-serif);
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--bg-color);
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--md-sys-color-background);
+    color: var(--md-sys-color-on-background);
     margin: 0;
-    padding: calc(var(--spacing-base) * 2);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    transition: background-color var(--transition-speed) ease-in-out, color var(--transition-speed) ease-in-out;
 }
 
-/* 3. Layout and Containers
----------------------------------------------------------------------- */
-#header, #footer {
-    max-width: var(--container-max-width);
-    margin: 0 auto;
-    padding: var(--spacing-base) calc(var(--spacing-base) * 2);
-    margin-bottom: calc(var(--spacing-base) * 2);
-    background-color: var(--card-bg-color);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    box-shadow: var(--card-shadow);
+.hero {
+    text-align: center;
+    padding: 4rem 1rem;
+    background-color: var(--md-sys-color-surface-variant);
+}
+
+.content {
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.grid-item {
+    padding: 1.5rem;
+}
+
+.quick-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+md-filled-card {
+    padding: 1.5rem;
 }
 
 #footer {
     text-align: center;
-    font-size: 0.9rem;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    background-color: var(--md-sys-color-surface-variant);
 }
 
-.content {
-    max-width: var(--container-max-width);
-    margin: 0 auto;
-    padding: 0;
-}
-
-.card {
-    background-color: var(--card-bg-color);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    padding: calc(var(--spacing-base) * 2);
-    margin-bottom: calc(var(--spacing-base) * 2);
-    box-shadow: var(--card-shadow);
-    transition: box-shadow var(--transition-speed) ease-in-out, transform var(--transition-speed) ease-in-out;
-}
-
-.card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-}
-
-/* 4. Typography
----------------------------------------------------------------------- */
-h1, h2, h3, h4, h5, h6 {
-    margin-top: 0;
-    margin-bottom: calc(var(--spacing-base) * 0.5);
-    font-weight: 600;
-    line-height: 1.2;
-    color: var(--text-color);
-}
-
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.75rem; }
-
-p {
-    margin-top: 0;
-    margin-bottom: var(--spacing-base);
-}
-
-a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color var(--transition-speed) ease;
-}
-
-a:hover {
-    color: var(--primary-color-hover);
-    text-decoration: underline;
-}
-
-ul, ol {
-    padding-left: calc(var(--spacing-base) * 1.5);
-}
-
-hr {
-    margin-top: calc(var(--spacing-base) * 2);
-    margin-bottom: calc(var(--spacing-base) * 2);
-    border: 0;
-    border-top: 1px solid var(--border-color);
-}
-
-/* 5. Buttons
----------------------------------------------------------------------- */
-.button {
-    display: inline-block;
-    font-weight: 500;
-    text-align: center;
-    vertical-align: middle;
-    cursor: pointer;
-    user-select: none;
-    border: 1px solid transparent;
-    padding: 0.5rem 1.5rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    border-radius: var(--border-radius);
-    transition: all var(--transition-speed) ease-in-out;
-    background-color: var(--primary-color);
-    color: #fff;
-}
-
-.button:hover {
-    background-color: var(--primary-color-hover);
-    text-decoration: none;
-    color: #fff;
-    transform: translateY(-2px);
-}
-
-/* 6. Navigation
----------------------------------------------------------------------- */
-.nav {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.nav a {
-    color: var(--text-color);
-    text-decoration: none;
-    padding: 0.5rem 1.5rem;
-    transition: color 0.3s ease, background-color 0.3s ease;
-    border-radius: 5px;
-    display: block;
-}
-
-.nav a:hover {
-    color: #fff;
-    background-color: var(--primary-color);
-    transform: translateY(-2px);
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: var(--card-bg-color);
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    list-style: none;
-    padding: 0;
-    border-radius: var(--border-radius);
-    border: 1px solid var(--border-color);
-}
-
-.dropdown-content a {
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* 7. Theme Switcher
----------------------------------------------------------------------- */
-.theme-switcher {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-}
-
-/* 8. Footer Enhancements
----------------------------------------------------------------------- */
 .footer-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.footer-left {
-    flex: 1;
-    text-align: left;
-}
-
-.footer-right {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .social-links a {
-    color: var(--text-color);
+    color: var(--md-sys-color-on-surface-variant);
     text-decoration: none;
-    font-size: 1.5rem; /* Larger icons */
-    transition: color var(--transition-speed) ease;
+    font-size: 1.5rem;
+    margin-left: 1rem;
 }
 
 .social-links a:hover {
-    color: var(--primary-color);
-    transform: translateY(-2px);
+    color: var(--md-sys-color-primary);
 }
 
-#footer {
-    text-align: initial;
+#consent-dialog {
+    --md-dialog-container-color: var(--md-sys-color-surface);
 }
 
-/* 9. Animations
----------------------------------------------------------------------- */
-@keyframes fade-in {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-#header, .content, #footer {
-    animation: fade-in 0.5s ease-in-out;
-}
-
-/* 10. Consent Modal
----------------------------------------------------------------------- */
-.consent-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.consent-overlay.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-.consent-modal {
-    background-color: var(--card-bg-color);
-    padding: calc(var(--spacing-base) * 2);
-    border-radius: var(--border-radius);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    max-width: 500px;
-    width: 90%;
-    text-align: center;
-    transform: scale(0.9);
-    transition: transform 0.3s ease;
-}
-
-.consent-overlay.visible .consent-modal {
-    transform: scale(1);
-}
-
-.consent-modal h2 {
-    margin-top: 0;
-    margin-bottom: var(--spacing-base);
-}
-
-.consent-modal p {
-    margin-bottom: calc(var(--spacing-base) * 1.5);
-}
-
-.consent-buttons {
-    display: flex;
-    justify-content: center;
-    gap: var(--spacing-base);
-}
-
-.button-secondary {
-    background-color: transparent;
-    color: var(--text-color);
-    border: 1px solid var(--border-color);
-}
-
-.button-secondary:hover {
-    background-color: var(--border-color);
-    color: var(--text-color);
+body.dark-mode {
+    --md-sys-color-primary: #8BCEFF;
+    --md-sys-color-on-primary: #003355;
+    --md-sys-color-primary-container: #004A7A;
+    --md-sys-color-on-primary-container: #C7E5FF;
+    --md-sys-color-secondary: #B9C8DA;
+    --md-sys-color-on-secondary: #253140;
+    --md-sys-color-secondary-container: #3B4858;
+    --md-sys-color-on-secondary-container: #D6E3F7;
+    --md-sys-color-tertiary: #D6BEE4;
+    --md-sys-color-on-tertiary: #3B2948;
+    --md-sys-color-tertiary-container: #523F5F;
+    --md-sys-color-on-tertiary-container: #F3DAFF;
+    --md-sys-color-error: #FFB4AB;
+    --md-sys-color-on-error: #690005;
+    --md-sys-color-error-container: #93000A;
+    --md-sys-color-on-error-container: #FFB4AB;
+    --md-sys-color-background: #1A1C1E;
+    --md-sys-color-on-background: #E2E2E6;
+    --md-sys-color-surface: #1A1C1E;
+    --md-sys-color-on-surface: #E2E2E6;
+    --md-sys-color-surface-variant: #42474E;
+    --md-sys-color-on-surface-variant: #C3C7CF;
+    --md-sys-color-outline: #8D9199;
+    --md-sys-color-shadow: #000000;
+    --md-sys-color-inverse-surface: #E2E2E6;
+    --md-sys-color-inverse-on-surface: #2F3033;
+    --md-sys-color-inverse-primary: #0062A3;
 }

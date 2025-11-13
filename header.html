@@ -1,26 +1,30 @@
-<header class="header">
-    <nav>
-        <ul class="nav">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li class="dropdown">
-                <a href="javascript:void(0)" class="drop-btn">Houses</a>
-                <ul class="dropdown-content">
-                    <li><a href="house/redwood.html">Redwood</a></li>
-                    <li><a href="house/viard.html">Viard</a></li>
-                    <li><a href="house/oshea.html">Oshea</a></li>
-                    <li><a href="house/yellow.html">Yellow</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="javascript:void(0)" class="drop-btn">Events</a>
-                <ul class="dropdown-content">
-                    <li><a href="events/tabloids.html">Tabloid Sports</a></li>
-                    <li><a href="events/haka-comp.html">Haka Competition</a></li>
-                    <li><a href="events/singing.html">Singing</a></li>
-                    <li><a href="events/swimming.html">Swimming</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
+<header>
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: 0 16px;">
+        <div>
+            <md-text-button href="index.html">Home</md-text-button>
+            <md-text-button href="about.html">About</md-text-button>
+
+            <div style="display: inline-block;">
+                <md-text-button id="houses-button">Houses</md-text-button>
+                <md-menu anchor="houses-button">
+                    <md-menu-item href="house/barbier.html">Barbier</md-menu-item>
+                    <md-menu-item href="house/champagnat.html">Champagnat</md-menu-item>
+                    <md-menu-item href="house/colin.html">Colin</md-menu-item>
+                    <md-menu-item href="house/mcauley.html">McAuley</md-menu-item>
+                </md-menu>
+            </div>
+
+            <div style="display: inline-block;">
+                <md-text-button id="events-button">Events</md-text-button>
+                <md-menu anchor="events-button">
+                    <md-menu-item href="events/swimming.html">Swimming</md-menu-item>
+                    <md-menu-item href="events/st-peters-day.html">St Peter's Day</md-menu-item>
+                    <md-menu-item href="events/house-singing.html">House Singing</md-menu-item>
+                    <md-menu-item href="events/haka.html">Haka</md-menu-item>
+                </md-menu>
+            </div>
+
+            <md-text-button href="contact.html">Contact Us</md-text-button>
+        </div>
+    </div>
 </header>
