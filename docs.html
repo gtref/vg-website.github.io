@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://esm.run/@material/web/all.js"></script>
+</head>
+<body>
+    <div id="header"></div>
+
+    <main>
+        <div class="hero">
+            <h1 class="md-display-large">Website Documentation</h1>
+        </div>
+
+        <div class="content grid-container">
+            <md-filled-card class="grid-item">
+                <h2 class="md-title-large">Features</h2>
+                <p class="md-body-large">This website is packed with features designed for a great user experience and easy maintenance:</p>
+                <ul>
+                    <li><strong>Dynamic Header & Footer:</strong> The header and footer are loaded dynamically on every page using JavaScript's <code>fetch</code> API. This means you only need to update <code>header.html</code> or <code>footer.html</code> once to see the changes across the entire site.</li>
+                    <li><strong>Light/Dark Theme Switcher:</strong> A theme switcher in the footer allows users to toggle between a high-contrast light mode (black text on white background) and a dark mode (white text on black background).</li>
+                    <li><strong>Persistent Theme:</strong> The user's theme choice is automatically saved to their browser's <code>localStorage</code>, so their preference is remembered on their next visit.</li>
+                    <li><strong>Dropdown Navigation:</strong> The navigation menu in the header uses clean, hover-based dropdowns to organize the "Houses" and "Events" sections, keeping the layout uncluttered.</li>
+                    <li><strong>Dynamic Pathing System:</strong> The site uses a clever JavaScript-based system to automatically fix all navigation links and asset paths. This ensures that all links work correctly, whether the page is at the root level or in a subdirectory, which is essential for deployments to services like GitHub Pages.</li>
+                </ul>
+            </md-filled-card>
+            <md-filled-card class="grid-item">
+                <h2 class="md-title-large">How It Works</h2>
+                <p class="md-body-large">The dynamic pathing system is the core of the site's functionality. Here's a brief overview:</p>
+                <ol>
+                    <li><strong><code>page_level</code> Variable:</strong> Each HTML file contains a small script in its <code>&lt;head&gt;</code> that defines a <code>page_level</code> variable.
+                        <ul>
+                            <li><code>const page_level = 0;</code> for pages in the root directory (like <code>index.html</code>).</li>
+                            <li><code>const page_level = 1;</code> for pages in a subdirectory (like <code>house/redwood.html</code>).</li>
+                        </ul>
+                    </li>
+                    <li><strong><code>main.js</code> Logic:</strong> The central <code>main.js</code> script reads this <code>page_level</code> variable to determine the correct relative path (<code>'./'</code> or <code>'../'</code>).</li>
+                    <li><strong>Dynamic Path Correction:</strong>
+                        <ul>
+                            <li>The script uses this calculated path to reliably <code>fetch</code> the <code>header.html</code> and <code>footer.html</code> files.</li>
+                            <li>After the header is loaded, the script iterates through all the navigation links and prepends the correct relative path to their <code>href</code> attributes.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p class="md-body-large">This ensures that all links are always correct, no matter where the user is on the site.</p>
+            </md-filled-card>
+        </div>
+    </main>
+
+    <div id="footer"></div>
+    <script>const page_level = 0;</script>
+    <script src="main.js" defer></script>
+</body>
+</html>

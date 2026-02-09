@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    if (!consentStatus) {
+    if (!consentStatus && window.location.pathname.indexOf('docs.html') === -1) {
         showConsentModal();
     } else if (consentStatus === 'granted') {
         window.clarity('consentv2', { ad_Storage: "granted", analytics_Storage: "granted" });
